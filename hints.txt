@@ -1,0 +1,43 @@
+http://localhost:8080/graphiql
+
+-------------------------
+
+query AllArticles {
+  articles {
+    id
+    title
+    author {
+      id
+      username
+    }
+  }
+}
+
+-------------------------
+
+query Article($articleId: Int!) {
+  article(id: $articleId) {
+    id
+    title
+    author {
+      id
+      username
+      bio
+    }
+    comments {
+      id
+      text
+      author {
+        id
+        username
+      }
+    }
+  }
+}
+
+To be able to test this in GraphiQL, you need to select Query variables at the bottom, and enter your parameters as a JSON:
+
+
+{"articleId": 1}
+
+-------------------------
